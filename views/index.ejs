@@ -1,0 +1,45 @@
+<%- include ('partials/head.ejs') %>
+<%- include ('partials/navbar.ejs')  %>
+<section class="container-fluid bg-dark p-4 d-flex align-items-center" style="height: 400px;">
+    <section class="container d-flex flex-column justify-content-center align-items-center">
+        <h2 class="text-light">Pesquise locais amigáveis para LGBTQI+</h2>
+       
+        <!-- Barra de pesquisa -->
+        <section class="container m-0 mt-4 mb-4">
+            <div class="row w-auto">
+            <div class="col-sm p-0">
+                <input type="text" class="form-control w-100" placeholder="Onde você quer ir?" aria-label="Procurar local amigável" aria-describedby="button-addon2" />
+                </div>
+                <div class="col-sm p-0">
+                    <select class="custom-select w-100" id="inputGroupSelect01">
+                        <option selected>Categorias</option>
+                        <option value="1">Restaurantes</option>
+                        <option value="2">Hoteis</option>
+                        <option value="3">Centros Culturais</option>
+                        <option value="4">Bares e Boates</option>
+                    </select>
+                </div>
+                <div class="col-sm p-0">
+                    <button type="button" class="btn btn-primary w-100" id="button-addon2" value='Buscar'>Buscar</button>
+            </div>
+            </div>
+        </section>
+
+    </section>
+</section>
+<section class="container d-flex flex-wrap justify-content-center align-items-center mt-4 mb-4">
+    <% places.forEach(place => { %>
+        <div class="card m-4 p-2" style="width: 300px;">
+            <div class="card-body p-2">
+                <h5><strong><%= place.nome %> | <%= place.category.title %></strong></h5>
+                <p><span class="text-primary"><strong>Endereço: </strong></span><%= place.endereco %>, <%= place.numero %>, <%= place.cidade %>, <%= place.estado %> - <%= place.cep %></p>
+                <a href="/<%= place.slug %>">Ver mais</a>
+            </div>
+            <div class="d-flex">
+            <button class="btn btn-outline-danger w-50 mr-2" type="button">Não amigável</button>
+            <button class="btn btn-outline-success w-50" type="button">Amigável</button>
+            </div>
+        </div>
+    <% }) %>
+</section>
+<%- include ('partials/footer.ejs') %>

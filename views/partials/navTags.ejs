@@ -1,0 +1,5 @@
+<nav class="-d-flex navbar">
+    <% categories.forEach(category => { %>
+    <a class="nav-link" href="/category/<%= category.slug %>"><%= category.title %></a>
+<% }) %>
+    </nav>

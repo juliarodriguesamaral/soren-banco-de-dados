@@ -1,0 +1,12 @@
+<%- include ('partials/head.ejs') %>
+<%- include ('partials/navbar.ejs')  %>
+<section class="container">
+    <div class="card">
+        <div class="card-header">
+            <h5><strong><%= place.nome %> | <%= place.category.title %></strong></h5>
+            <p><span class="text-primary"><strong>Endereço: </strong></span><%= place.endereco %>, <%= place.numero %>, <%= place.cidade %>, <%= place.estado %> - <%= place.cep %></p>
+            <p><span class="text-primary"><strong>Avaliação: </strong></span>Estrelas ou Status</p>
+        </div>
+    </div>
+</section>
+<%- include ('partials/footer.ejs') %>

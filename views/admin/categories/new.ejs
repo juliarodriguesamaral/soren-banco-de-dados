@@ -1,0 +1,15 @@
+<%- include ('../../partials/head.ejs') %>
+<%- include ('../../partials/navbar.ejs')  %>
+    <section class="container">
+        <form method="POST" action="/categories/save">
+            <div class="row">
+                <div class="col-sm">
+                <input class="form-control mb-3" type="text" name="title" placeholder="Defina o título da categoria">
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-primary text-light">Cadastrar</button>
+            </div>
+            </div>
+        </form>
+    </section>
+<%- include ('../../partials/footer.ejs') %>

@@ -1,0 +1,21 @@
+{
+  "name": "soren",
+  "version": "1.0.0",
+  "description": "Aplicaçao web que classifica locais amigaveis ou nao para pessoas LGBTQ+",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Julia Rodrigues",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.4.1",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "mysql2": "^2.1.0",
+    "nodemon": "^2.0.2",
+    "sequelize": "^5.21.5",
+    "slugify": "^1.4.0"
+  }
+}

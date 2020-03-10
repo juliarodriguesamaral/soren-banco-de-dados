@@ -1,0 +1,56 @@
+<%- include ('../../partials/head.ejs') %>
+<%- include ('../../partials/navbar.ejs')  %>
+    <section class="container">
+        <div class="d-flex justify-content-between mb-4">
+            <h4>Todas os locais</h4>
+            <a class="btn btn-dark text-light" href="/admin/places/new">Novo local</a>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Cidade</th>
+                    <th>Estado</th>
+                    <th>CEP</th>
+                    <th>Endereço</th>
+                    <th>n°</th>
+                    <th>Complemento</th>
+                    <th>Categoria</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% places.forEach(place => { %>
+                    <tr>
+                        <td><%= place.id %></td>
+                        <td><%= place.nome %></td>
+                        <td><%= place.cidade %></td>
+                        <td><%= place.estado %></td>
+                        <td><%= place.cep %></td>
+                        <td><%= place.endereco %></td>
+                        <td><%= place.numero %></td>
+                        <td><%= place.complemento %></td>
+                        <!-- Para exibir na tabela a avalicacao:  <td><%= place.avaliacao %></td> -->
+                        <td><%= place.category.title %></td>
+                        <td>
+                            <form method="POST" action="/places/delete" style="display: inline;" onsubmit="confirmaDelete(event, this)">
+                                <input type="hidden" name="id" value="<%= place.id %>">
+                                <button class="btn btn-danger mb-2">Excluir</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </section>
+<%- include ('../../partials/footer.ejs') %>
+<script>
+    function confirmaDelete(event, form) {
+        event.preventDefault();
+        var decision = confirm("Você quer deletar esse local?");
+        if(decision) {
+            form.submit();
+        } 
+    }
+</script>

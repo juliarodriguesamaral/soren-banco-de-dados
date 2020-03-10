@@ -1,0 +1,33 @@
+<%- include ('../../partials/head.ejs') %>
+<%- include ('../../partials/navbar.ejs')  %>
+    <section class="container">
+        <h4>Cadastre um novo local</h4>
+        <form method="POST" action="/places/save">
+            <input class="form-control" type="text" name="nome" placeholder="Digite o nome do local">
+            <div class="row mt-4">
+                <div class="col">
+                    <input class="form-control" type="text" name="cidade" placeholder="Cidade">
+                </div>
+                <div class="col">
+                    <input class="form-control" type="text" name="estado" placeholder="Estado">
+                </div>
+                <div class="col"><input class="form-control" type="text" name="cep" placeholder="CEP"></div>
+            </div>
+            <div class="row mt-4">
+                <div class="col">
+                    <input class="form-control" type="text" name="endereco" placeholder="Endereço">
+                </div>
+                <div class="col">
+                    <input class="form-control" type="text" name="numero" placeholder="Número">
+                </div>
+                <div class="col"><input class="form-control" type="text" name="complemento" placeholder="Complemento"></div>
+            </div>
+            <select class="form-control mt-4" name="category" aria-placeholder="Selecione uma categoria">
+                <% categories.forEach((category) => { %>
+                    <option value="<%= category.id %>"><%= category.title %></option>
+                <% }) %>
+            </select>
+            <button class="btn btn-primary mt-4 w-100">Cadastrar</button>
+        </form>
+    </section>
+<%- include ('../../partials/footer.ejs') %>
